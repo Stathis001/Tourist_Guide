@@ -1,0 +1,52 @@
+<!-- res/layout/activity_main.xml -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textSize="24sp"
+        android:gravity="end"
+        android:text="0"
+        />
+
+    <!-- Row 1 -->
+    <Button
+        android:id="@+id/seven"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="7" />
+
+    <!-- Add more buttons for digits, operators, and other functionalities -->
+
+    <!-- Row 2 -->
+    <Button
+        android:id="@+id/four"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="4" />
+
+    <!-- Add more buttons for digits, operators, and other functionalities -->
+
+    <!-- Row 3 -->
+    <!-- Add buttons for other rows -->
+
+    <!-- Row 4 (Operators) -->
+    <Button
+        android:id="@+id/add"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="+" />
+
+    <!-- Add more buttons for operators and functionalities -->
+
+</RelativeLayout>
