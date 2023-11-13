@@ -1,5 +1,6 @@
 package com.example.touristguide;
 
+<<<<<<< HEAD
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -11,5 +12,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.maps.GoogleMap;
 
+=======
+>>>>>>> origin/Marios
 public class LocationHandler {
 }
