@@ -1,5 +1,4 @@
 package com.example.touristguide;
-
 import android.os.Bundle;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -26,10 +25,10 @@ public class MapsActivity extends FragmentActivity {
         SupportMapFragment mapFragment = new SupportMapFragment();
         fragmentTransaction.add(R.id.mapFragment, mapFragment);
         fragmentTransaction.commit();
-
         // Set up the Google Map
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
+
             public void onMapReady(GoogleMap map) {
                 googleMap = map;
 
@@ -50,6 +49,10 @@ public class MapsActivity extends FragmentActivity {
         // Forward the result to LocationHandler
         if (locationHandler != null) {
             locationHandler.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+            public void onMapReady(GoogleMap googleMap) {
+                // You can customize the map and add markers, etc., here.
+            }
         }
     }
 }
