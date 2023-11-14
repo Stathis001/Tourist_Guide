@@ -1,21 +1,24 @@
 package com.example.touristguide;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
 
-public class MapsActivity extends FragmentActivity {
+public class SimpleMapHandler extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap googleMap;
-    private FusedLocationProviderClient fusedLocationClient;
-    private LocationHandler locationHandler;
-    private MarkerManager markerManager;
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -32,22 +35,18 @@ public class MapsActivity extends FragmentActivity {
             @Override
             public void onMapReady(GoogleMap map) {
                 googleMap = map;
-                markerManager = new MarkerManager(map);
-                markerManager.addMarker(37.7749, -122.4194, "San Francisco, CA");
-                locationHandler = new LocationHandler(MapsActivity.this, googleMap, fusedLocationClient);
-                locationHandler.initializeLocation();
             }
         });
-        fusedLocationClient = new FusedLocationProviderClient(this);
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    public void onMapReady(GoogleMap map) {
+        googleMap = map;
+        // Customize map settings if needed
+        // e.g., googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-        // Forward the result to LocationHandler
-        if (locationHandler != null) {
-            locationHandler.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
+        // Add a marker in a default location and move the camera
+        LatLng defaultLocation = new LatLng(0, 0);
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(defaultLocation));
     }
 }

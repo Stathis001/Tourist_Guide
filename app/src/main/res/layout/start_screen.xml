@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
+
+    <!-- Background Image View -->
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/received_663824995734600"
+        android:scaleType="centerCrop"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Your existing content -->
         <Button
             android:id="@+id/startButton"
             android:layout_width="wrap_content"
@@ -17,10 +28,7 @@
             android:textSize="50sp"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="50sp"
-            />
-
+            android:layout_marginBottom="50sp"/>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
