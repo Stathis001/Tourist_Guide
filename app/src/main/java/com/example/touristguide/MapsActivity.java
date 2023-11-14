@@ -18,7 +18,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 
 public class MapsActivity extends FragmentActivity {
 
-=======
+
 
     private GoogleMap googleMap;
     private FusedLocationProviderClient fusedLocationClient;
