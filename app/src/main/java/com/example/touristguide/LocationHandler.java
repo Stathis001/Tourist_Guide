@@ -1,4 +1,5 @@
 package com.example.touristguide;
+<<<<<<< HEAD
 
 import android.Manifest;
 import android.content.Intent;
@@ -6,6 +7,11 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.view.View;
 
+=======
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Location;
+>>>>>>> origin/Kalliopi
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -14,7 +20,12 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.maps.GoogleMap;
 
+<<<<<<< HEAD
 public class LocationHandler extends FragmentActivity {
+=======
+
+public class LocationHandler {
+>>>>>>> origin/Kalliopi
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     private  FragmentActivity activity;
@@ -44,7 +55,10 @@ public class LocationHandler extends FragmentActivity {
             startLocationUpdates();
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/Kalliopi
     private void startLocationUpdates() {
         // Start location updates here
         LocationRequest locationRequest = new LocationRequest();
@@ -70,11 +84,16 @@ public class LocationHandler extends FragmentActivity {
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+<<<<<<< HEAD
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+=======
+        // Handle permission results here
+>>>>>>> origin/Kalliopi
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 enableMyLocation();
             } else {
+<<<<<<< HEAD
                 // Permission denied
                 startSimpleMapHandlerActivity();
             }
@@ -86,3 +105,13 @@ public class LocationHandler extends FragmentActivity {
         startActivity(intent);
     }
 }
+=======
+                // Handle permission denied
+                //The map works with the sites and every thing but can't provide directions and gps location of user.
+                //This is a whole new class that needs to set these things up.
+            }
+        }
+    }
+    public
+}
+>>>>>>> origin/Kalliopi
