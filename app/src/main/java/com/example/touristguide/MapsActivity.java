@@ -14,12 +14,10 @@ public class MapsActivity extends FragmentActivity {
     private GoogleMap googleMap;
     private FusedLocationProviderClient fusedLocationClient;
     private LocationHandler locationHandler;
-    private MarkerManager markerManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         // Initialize the SupportMapFragment
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -32,9 +30,6 @@ public class MapsActivity extends FragmentActivity {
             @Override
             public void onMapReady(GoogleMap map) {
                 googleMap = map;
-                markerManager = new MarkerManager(map);
-                markerManager.addMarker(37.7749, -122.4194, "San Francisco, CA");
-                locationHandler = new LocationHandler(MapsActivity.this, googleMap, fusedLocationClient);
                 locationHandler.initializeLocation();
             }
         });
