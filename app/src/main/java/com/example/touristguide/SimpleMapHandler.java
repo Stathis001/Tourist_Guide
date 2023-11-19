@@ -1,14 +1,11 @@
 package com.example.touristguide;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -21,9 +18,8 @@ public class SimpleMapHandler extends FragmentActivity implements OnMapReadyCall
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.map_activity_main);
 
-        // Initialize the SupportMapFragment
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         SupportMapFragment mapFragment = new SupportMapFragment();
@@ -42,11 +38,7 @@ public class SimpleMapHandler extends FragmentActivity implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap map) {
         googleMap = map;
-        // Customize map settings if needed
-        // e.g., googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-
-        // Add a marker in a default location and move the camera
-        LatLng defaultLocation = new LatLng(0, 0);
+        LatLng defaultLocation = new LatLng(41.0863158468594, 23.54805430548399); // Serres
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(defaultLocation));
     }
 }

@@ -7,42 +7,43 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.HashMap;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.HashMap;
+
 public class MarkerManager {
 
     private GoogleMap googleMap;
-    private HashMap<String, Marker> markerMap;
+    private HashMap<Integer, MapMarker> mapMarkers;
 
     public MarkerManager(GoogleMap googleMap) {
         this.googleMap = googleMap;
-        this.markerMap = new HashMap<>();
+        this.mapMarkers = new HashMap<>();
     }
 
-    public void addMarker(String markerId, double latitude, double longitude) {
+    public void addMarker(int markerId, double latitude, double longitude, String name) {
         LatLng location = new LatLng(latitude, longitude);
-        // Check if the marker with the given ID already exists
-        if (markerMap.containsKey(markerId)) {
-            // If it exists, update its position and title
-            Marker existingMarker = markerMap.get(markerId);
-            existingMarker.setPosition(location);
+
+        if (mapMarkers.containsKey(markerId)) {
+            MapMarker existingMapMarker = mapMarkers.get(markerId);
+            existingMapMarker.setPosition(location);
         } else {
-            // If it doesn't exist, create a new marker
             MarkerOptions markerOptions = new MarkerOptions().position(location);
-            Marker newMarker = googleMap.addMarker(markerOptions);
-            markerMap.put(markerId, newMarker);
+            googleMap.addMarker(markerOptions);
+            MapMarker mapMarker = new MapMarker(markerId, location, name);
+            googleMap.setOnMarkerClickListener(mapMarker);
+            mapMarkers.put(markerId, mapMarker);
         }
     }
 
-    public void removeMarker(String markerId) {
-        // Check if the marker with the given ID exists
-        if (markerMap.containsKey(markerId)) {
-            // If it exists, remove it from the map and the HashMap
-            Marker markerToRemove = markerMap.get(markerId);
-            markerToRemove.remove();
-            markerMap.remove(markerId);
+    public void removeMarker(int markerId) {
+        if (mapMarkers.containsKey(markerId)) {
+            MapMarker mapMarker = mapMarkers.get(markerId);
+            mapMarker.remove();
+            mapMarkers.remove(markerId);
         }
     }
-
-
-
-    // You can add more methods for customization or additional functionality as needed
 }

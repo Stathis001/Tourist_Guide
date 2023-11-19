@@ -14,22 +14,25 @@ public class MapsActivity extends FragmentActivity {
     private GoogleMap googleMap;
     private FusedLocationProviderClient fusedLocationClient;
     private LocationHandler locationHandler;
+    private MarkerLoader markerLoader;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        // Initialize the SupportMapFragment
+        setContentView(R.layout.map_activity_main);
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         SupportMapFragment mapFragment = new SupportMapFragment();
         fragmentTransaction.add(R.id.mapFragment, mapFragment);
         fragmentTransaction.commit();
 
-        // Set up the Google Map
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap map) {
                 googleMap = map;
+                markerLoader = new MarkerLoader(map);
+                locationHandler = new LocationHandler(MapsActivity.this,map, fusedLocationClient);
                 locationHandler.initializeLocation();
             }
         });
@@ -39,8 +42,6 @@ public class MapsActivity extends FragmentActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        // Forward the result to LocationHandler
         if (locationHandler != null) {
             locationHandler.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }

@@ -11,13 +11,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.start_screen); // Set your layout XML file
+        setContentView(R.layout.start_screen);
         startButton = findViewById(R.id.startButton);
-        startButton.setOnClickListener(this); // Set the click listener here
+        startButton.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(v.getContext(), MapsActivity.class); // Replace MainActivity.class with the actual target class
+        Intent intent = new Intent(v.getContext(), MapsActivity.class);
         startActivity(intent);
     }
 
