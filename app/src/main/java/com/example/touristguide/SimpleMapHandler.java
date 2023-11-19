@@ -1,9 +1,12 @@
 package com.example.touristguide;
 
-import android.content.Context;
 
+import android.os.Bundle;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import android.content.Context;
+
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -11,37 +14,33 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
-public class SimpleMapHandler implements OnMapReadyCallback {
+public class SimpleMapHandler extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap googleMap;
-    private Context context;
 
-    public void MapHandler(Context context) {
-        this.context = context;
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.map_activity_main);
 
-    public void createMap(FragmentActivity activity, int mapContainerId) {
-        FragmentManager fragmentManager = activity.getSupportFragmentManager();
-        SupportMapFragment mapFragment = (SupportMapFragment) fragmentManager.findFragmentByTag("mapFragment");
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        SupportMapFragment mapFragment = new SupportMapFragment();
+        fragmentTransaction.add(R.id.mapFragment, mapFragment);
+        fragmentTransaction.commit();
 
-        if (mapFragment == null) {
-            mapFragment = SupportMapFragment.newInstance();
-            fragmentManager.beginTransaction()
-                    .replace(mapContainerId, mapFragment, "main_activity")
-                    .commit();
-        }
-
-        mapFragment.getMapAsync(this);
+        // Set up the Google Map
+        mapFragment.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap map) {
+                googleMap = map;
+            }
+        });
     }
 
     @Override
     public void onMapReady(GoogleMap map) {
         googleMap = map;
-        // Customize map settings if needed
-        // e.g., googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-
-        // Add a marker in a default location and move the camera
-        LatLng defaultLocation = new LatLng(0, 0);
+        LatLng defaultLocation = new LatLng(41.0863158468594, 23.54805430548399); // Serres
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(defaultLocation));
     }
 }
