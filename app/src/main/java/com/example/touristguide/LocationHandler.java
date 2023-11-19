@@ -1,7 +1,11 @@
 package com.example.touristguide;
+
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.view.View;
+
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -10,8 +14,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.maps.GoogleMap;
 
-
-public class LocationHandler {
+public class LocationHandler extends FragmentActivity {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     private  FragmentActivity activity;
@@ -41,6 +44,7 @@ public class LocationHandler {
             startLocationUpdates();
         }
     }
+
     private void startLocationUpdates() {
         // Start location updates here
         LocationRequest locationRequest = new LocationRequest();
@@ -52,30 +56,31 @@ public class LocationHandler {
                 != PackageManager.PERMISSION_GRANTED) {
             return;
         }
-
         fusedLocationClient.requestLocationUpdates(locationRequest, new LocationCallback() {
             @Override
             public void onLocationResult(LocationResult locationResult) {
                 super.onLocationResult(locationResult);
                 if (locationResult.getLastLocation() != null) {
                     Location location = locationResult.getLastLocation();
-                    // You can use the 'location' object to get the latitude and longitude
                 }
             }
         }, null);
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        // Handle permission results here
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 enableMyLocation();
             } else {
-                // Handle permission denied
-                //The map works with the sites and every thing but can't provide directions and gps location of user.
-                //This is a whole new class that needs to set these things up.
+                // Permission denied
+                startSimpleMapHandlerActivity();
             }
         }
     }
-    public
+
+    private void startSimpleMapHandlerActivity() {
+        Intent intent = new Intent(this, SimpleMapHandler.class);
+        startActivity(intent);
+    }
 }
