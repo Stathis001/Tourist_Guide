@@ -67,3 +67,31 @@ public class MapMarker implements GoogleMap.OnMarkerClickListener {
         }
     }
 }
+public class MapManager {
+    // Υποθέτουμε ότι έχετε μια λίστα με τους δείκτες τύπου MapMarker
+    private List<MapMarker> markers;
+
+    // Υποθέτουμε ότι έχετε μια αναφορά στο GoogleMap
+    private GoogleMap googleMap;
+
+    // Υποθέτουμε ότι έχετε έναν κατασκευαστή που αρχικοποιεί τα markers και το googleMap
+
+    // Υποθέτουμε ότι έχετε μια μέθοδο που ρυθμίζει τους δείκτες στον χάρτη
+    public void setMarkersOnMap() {
+        for (MapMarker marker : markers) {
+            // Προσθέστε τον δείκτη στον χάρτη
+            googleMap.addMarker(new MarkerOptions().position(marker.getMarkerPos()).title(marker.getMarkerName()));
+        }
+    }
+
+    // Μέθοδος που εμφανίζει τις πληροφορίες για έναν δείκτη
+    public void showInfoWindow(int markerID) {
+        for (MapMarker marker : markers) {
+            if (marker.getMarkerID() == markerID) {
+                // Εδώ μπορείτε να χρησιμοποιήσετε τη μέθοδο showInfoWindow που έχετε ήδη υλοποιήσει στην κλάση MapMarker
+                marker.showInfoWindow();
+                break;
+            }
+        }
+    }
+}
