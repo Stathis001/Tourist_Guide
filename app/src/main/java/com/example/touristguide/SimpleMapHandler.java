@@ -1,10 +1,12 @@
 package com.example.touristguide;
 
-import android.os.Bundle;
 
+import android.os.Bundle;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import android.content.Context;
+
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
