@@ -9,8 +9,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.List;
 public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
     private Marker clickedMarker;
+    private List<Marker> allMarkers;
     public MarkerLoader(GoogleMap map) {
         MarkerManager manager = new MarkerManager(map);
         map.addMarker(new MarkerOptions().position(new LatLng(41.07529662776701, 23.55353525970813)).title("dipae (Σχολείο)").snippet("This is marker 1's snippet").contentDescription("some description"));
@@ -62,4 +65,17 @@ Emergency Services
     public Marker getClickedMarker() {
         return clickedMarker;
     }
+    public void filterMarkers(String keyword) {
+        for (Marker marker : allMarkers) {
+            // Check if the marker title contains the keyword
+            if (marker.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
+                // Show the marker
+                marker.setVisible(true);
+            } else {
+                // Hide the marker
+                marker.setVisible(false);
+            }
+        }
+    }
+
 }
