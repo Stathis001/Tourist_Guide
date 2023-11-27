@@ -59,6 +59,7 @@ public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
             }
         }
     }
+
     public Marker getClickedMarker() {
         return clickedMarker;
     }
