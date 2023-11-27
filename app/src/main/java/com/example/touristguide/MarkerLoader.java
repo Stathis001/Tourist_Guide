@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
     private List<Marker> allMarkers;
-    allMarkers = new ArrayList<>();
+    private List<Marker> allMarkers;
     private Marker clickedMarker;
     public MarkerLoader(GoogleMap map) {
         MarkerManager manager = new MarkerManager(map);
@@ -50,8 +50,7 @@ public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
     }
     public void filterMarkers(String keyword) {
         for (Marker marker : allMarkers) {
-            // You can implement your filtering logic here
-            // For example, check if the marker title contains the keyword
+            // Check if the marker title contains the keyword
             if (marker.getTitle().toLowerCase().contains(keyword.toLowerCase())) {
                 // Show the marker
                 marker.setVisible(true);
