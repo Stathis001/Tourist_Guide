@@ -12,9 +12,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 import java.util.List;
 public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
-    private List<Marker> allMarkers;
-    private List<Marker> allMarkers;
     private Marker clickedMarker;
+    private List<Marker> allMarkers;
     public MarkerLoader(GoogleMap map) {
         MarkerManager manager = new MarkerManager(map);
         map.addMarker(new MarkerOptions().position(new LatLng(41.07529662776701, 23.55353525970813)).title("dipae").snippet("This is marker 1's snippet").contentDescription("some description"));
