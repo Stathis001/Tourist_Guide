@@ -20,17 +20,17 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <!-- Description TextView -->
-    <TextView
-        android:id="@+id/imageDescriptionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Discover the beauty of our world"
-        android:textColor="#FF0000" <!-- Κόκκινο χρώμα -->
-        android:textSize="20sp" <!-- Μέγεθος 20sp -->
-        app:layout_constraintBottom_toBottomOf="@+id/backgroundImageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/backgroundImageView"/>
+  <TextView
+            android:id="@+id/messageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to Serres"
+            android:textColor="#FFFF00"
+            android:textSize="28sp"
+            android:background="@color/quantum_black_hint_text"
+            android:layout_above="@id/startButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"/>
 
     <!-- Your existing content -->
     <Button
