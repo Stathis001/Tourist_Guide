@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
     private Marker clickedMarker;
-    private List<Marker> allMarkers;
+    private List<Marker>  markerList;
     public MarkerLoader(GoogleMap map) {
         MarkerManager manager = new MarkerManager(map);
         map.addMarker(new MarkerOptions().position(new LatLng(41.092479913425834, 23.548556365564238)).title("Anastasios eskitzis- Reumatologos").snippet("This is marker 1's snippet"));
@@ -75,8 +75,9 @@ public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
 Emergency Services
 
 
-
  */
+
+
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
         clickedMarker=marker;
