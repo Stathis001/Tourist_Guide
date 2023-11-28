@@ -13,6 +13,10 @@ public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
     private Marker clickedMarker;
     public MarkerLoader(GoogleMap map) {
         MarkerManager manager = new MarkerManager(map);
+        map.addMarker(new MarkerOptions().position(new LatLng(41.092479913425834, 23.548556365564238)).title("Anastasios eskitzis- Reumatologos").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.09034269429762, 23.55348399478657)).title("Maria Kokarida - Wrila").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.08731152657037, 23.55017293627774)).title("Orthopaidiko iatreio enilikwn kai paidwn").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.08731152657037, 23.55017293627774)).title("Orthopaidiko iatreio enilikwn kai paidwn").snippet("This is marker 1's snippet"));
         map.addMarker(new MarkerOptions().position(new LatLng(41.07529662776701, 23.55353525970813)).title("dipae").snippet("This is marker 1's snippet").contentDescription("some description"));
         map.addMarker(new MarkerOptions().position(new LatLng(41.09835129725971, 23.551927608268336)).title("Lofos Koyla").snippet("This is marker 1's snippet"));
         map.addMarker(new MarkerOptions().position(new LatLng(41.09156654135183, 23.559917963233605)).title("Achmet Pasa Tzami").snippet("This is marker 1's snippet"));
@@ -36,7 +40,24 @@ public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
         map.addMarker(new MarkerOptions().position(new LatLng(41.08315378520309, 23.551668610294023)).title("Ελλήνων Γεύσεις").snippet("This is marker 1's snippet"));
         map.addMarker(new MarkerOptions().position(new LatLng(41.08084088215488, 23.541583504790097)).title("Bruno Coffee Stores").snippet("This is marker 1's snippet"));
         map.addMarker(new MarkerOptions().position(new LatLng(41.08787638344969, 23.541433300952594)).title("ACS Courier").snippet("This is marker 1's snippet"));
-        map.addMarker(new MarkerOptions().position(new LatLng(41.090423204868415, 23.58244886315631)).title("General Hospital of Serres").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.090423204868415, 23.58244886315631)).title("General Hospital of Serres").snippet("This is marker 1's snippet")); 
+        map.addMarker(new MarkerOptions().position(new LatLng(41.09137601208604, 23.503011834688117)).title("Εργοστάσιο Ζάχαρης ΕΒΖ").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.14501059108502, 23.56798662373499)).title("Καταρράκτες του Ελαιώνας Eleonas Waterfall").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.09299314426827,23.515231717565964)).title("Lidl").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.05052488942454, 23.53291159053017)).title("AUTOGAS SERRES").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.04257774991801, 23.52753457401081)).title("Shell").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.08450712812035, 23.58830568688104)).title("Αεροδρόμιο «Εμμανουήλ Παππάς»").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.09094591627225, 23.600749255344375)).title("Bodyfit Σέρρες - Γυμναστήρια Σέρρες").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.10935603117662, 23.488498349170314)).title("Joy Dog Club Ξενοδοχείο Σκύλων").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.0983612703665,23.47249092575993)).title("JUMBO").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.084980140470996, 23.502080266589516)).title("washer truck").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.085807177397065, 23.497308472294627)).title("Hobbytech Track-Πίστα").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.097390282594645, 23.545074746638075)).title("Βυζαντινό Υδραγωγείο Σερρών").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.10109319034786, 23.551876828708686)).title("Κολυμβητήριο").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.09632970832197, 23.564652464585212)).title("Σνούπυ Academy | Κέντρο προσχολικής αγωγής").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.09657008557742, 23.565883689570832)).title("ΚΩΣΤΟΠΟΥΛΕΙΟΣ ΣΤΕΓΗ Μονάδα Χρονίων Παθήσεων").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.10368066471727, 23.55034040268912)).title("Θερινό Σινεμά").snippet("This is marker 1's snippet"));
+}
     }
 
     @Override
@@ -47,5 +68,6 @@ public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
 
     public Marker getClickedMarker() {
         return clickedMarker;
+
     }
 }
