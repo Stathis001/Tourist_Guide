@@ -9,11 +9,16 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+<<<<<<<<< Temporary merge branch 1
+public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
+    private Marker clickedMarker;
+=========
 import java.util.ArrayList;
 import java.util.List;
 public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
     private Marker clickedMarker;
     private List<Marker> allMarkers;
+>>>>>>>>> Temporary merge branch 2
     public MarkerLoader(GoogleMap map) {
         MarkerManager manager = new MarkerManager(map);
         map.addMarker(new MarkerOptions().position(new LatLng(41.07529662776701, 23.55353525970813)).title("dipae").snippet("This is marker 1's snippet").contentDescription("some description"));
@@ -47,6 +52,9 @@ public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
         clickedMarker=marker;
         return false;
     }
+<<<<<<<<< Temporary merge branch 1
+
+=========
     public void filterMarkers(String keyword) {
         for (Marker marker : allMarkers) {
             // Check if the marker title contains the keyword
@@ -59,7 +67,7 @@ public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
             }
         }
     }
-
+>>>>>>>>> Temporary merge branch 2
     public Marker getClickedMarker() {
         return clickedMarker;
     }
