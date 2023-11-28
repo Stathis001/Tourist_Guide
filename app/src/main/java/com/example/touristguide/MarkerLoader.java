@@ -61,7 +61,7 @@ public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
         map.addMarker(new MarkerOptions().position(new LatLng(41.09657008557742, 23.565883689570832)).title("ΚΩΣΤΟΠΟΥΛΕΙΟΣ ΣΤΕΓΗ Μονάδα Χρονίων Παθήσεων").snippet("This is marker 1's snippet"));
         map.addMarker(new MarkerOptions().position(new LatLng(41.10368066471727, 23.55034040268912)).title("Θερινό Σινεμά").snippet("This is marker 1's snippet"));
 }
-    }
+
 /*
 Σχολείο
 Ιστορικό αξιοθέατο
@@ -73,6 +73,7 @@ public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
 Χώρος Ψυχαγωγίας
 Υπηρεσίες
 Emergency Services
+Ιατρείο
 
 
  */
