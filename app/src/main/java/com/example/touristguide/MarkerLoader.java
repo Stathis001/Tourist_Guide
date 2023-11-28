@@ -13,6 +13,10 @@ public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
     private Marker clickedMarker;
     public MarkerLoader(GoogleMap map) {
         MarkerManager manager = new MarkerManager(map);
+        map.addMarker(new MarkerOptions().position(new LatLng(41.092479913425834, 23.548556365564238)).title("Anastasios eskitzis- Reumatologos").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.09034269429762, 23.55348399478657)).title("Maria Kokarida - Wrila").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.08731152657037, 23.55017293627774)).title("Orthopaidiko iatreio enilikwn kai paidwn").snippet("This is marker 1's snippet"));
+        map.addMarker(new MarkerOptions().position(new LatLng(41.08731152657037, 23.55017293627774)).title("Orthopaidiko iatreio enilikwn kai paidwn").snippet("This is marker 1's snippet"));
         map.addMarker(new MarkerOptions().position(new LatLng(41.07529662776701, 23.55353525970813)).title("dipae").snippet("This is marker 1's snippet").contentDescription("some description"));
         map.addMarker(new MarkerOptions().position(new LatLng(41.09835129725971, 23.551927608268336)).title("Lofos Koyla").snippet("This is marker 1's snippet"));
         map.addMarker(new MarkerOptions().position(new LatLng(41.09156654135183, 23.559917963233605)).title("Achmet Pasa Tzami").snippet("This is marker 1's snippet"));
@@ -64,5 +68,6 @@ public class MarkerLoader implements GoogleMap.OnMarkerClickListener {
 
     public Marker getClickedMarker() {
         return clickedMarker;
+
     }
 }
