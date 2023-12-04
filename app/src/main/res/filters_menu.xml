@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/filter_option_1"
+        android:title="Επιλογή 1" />
+    <item
+        android:id="@+id/filter_option_2"
+        android:title="Επιλογή 2" />
+    <!-- Προσθέστε περισσότερες επιλογές αν χρειάζεται -->
+</menu>
