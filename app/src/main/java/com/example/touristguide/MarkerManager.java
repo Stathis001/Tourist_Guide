@@ -2,17 +2,9 @@ package com.example.touristguide;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import java.util.HashMap;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
-
-import java.util.HashMap;
 
 public class MarkerManager {
 
@@ -26,16 +18,15 @@ public class MarkerManager {
 
     public void addMarker(int markerId, double latitude, double longitude, String name) {
         LatLng location = new LatLng(latitude, longitude);
-
+        MapMarker existingMapMarker = mapMarkers.get(markerId);
+        existingMapMarker.setPosition(location);
         if (mapMarkers.containsKey(markerId)) {
-            MapMarker existingMapMarker = mapMarkers.get(markerId);
             existingMapMarker.setPosition(location);
         } else {
             MarkerOptions markerOptions = new MarkerOptions().position(location);
             googleMap.addMarker(markerOptions);
-            MapMarker mapMarker = new MapMarker(markerId, location, name);
-            googleMap.setOnMarkerClickListener(mapMarker);
-            mapMarkers.put(markerId, mapMarker);
+            googleMap.setOnMarkerClickListener(existingMapMarker);
+            mapMarkers.put(markerId, existingMapMarker);
         }
     }
 
