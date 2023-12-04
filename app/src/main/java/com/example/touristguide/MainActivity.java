@@ -52,6 +52,28 @@ public class MainActivity extends AppCompatActivity {
         popupMenu.show();
     }
 }
+popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.filter_option_1:
+                // Εκτέλεση κάποιας ενέργειας για την Επιλογή 1
+                doSomethingForFilterOption1();
+                return true;
+            case R.id.filter_option_2:
+                // Εκτέλεση κάποιας ενέργειας για την Επιλογή 2
+                doSomethingForFilterOption2();
+                return true;
+            case R.id.filter_option_3:
+                // Εκτέλεση κάποιας ενέργειας για την Επιλογή 3
+                doSomethingForFilterOption3();
+                return true;
+            // Προσθήκη επιπλέον περιπτώσεων αν χρειάζεται
+            default:
+                return false;
+        }
+    }
+});
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
     Button startButton ;
