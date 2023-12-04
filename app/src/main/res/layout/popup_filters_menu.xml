@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <item android:id="@+id/item1"
+        android:title="Σχολείο"
+        tools:ignore="MissingConstraints" />
+
+    <item android:id="@+id/item2"
+        android:title="Ιστορικό Αξιοθέατο"
+        tools:ignore="MissingConstraints" />
+
+    <item android:id="@+id/item3"
+        android:title="Χώρος Λατρείας"
+        tools:ignore="MissingConstraints" />
+
+    <item android:id="@+id/item4"
+        android:title="Τουριστικό Αξιοθέατο"
+        tools:ignore="MissingConstraints" />
+    <item android:id="@+id/item5"
+        android:title="Μέσα Μαζικής Μεταφοράς"
+        tools:ignore="MissingConstraints" />
+    <item android:id="@+id/item6"
+        android:title="Ξενοδοχείο"
+        tools:ignore="MissingConstraints" />
+    <item android:id="@+id/item7"
+        android:title="Αθλητικές Εγκαταστάσεις"
+        tools:ignore="MissingConstraints" />
+    <item android:id="@+id/item8"
+        android:title="Ιατρικό Κέντρο"
+        tools:ignore="MissingConstraints" />
+    <item android:id="@+id/item9"
+        android:title="Χώρος Ψυχαγωγίας"
+        tools:ignore="MissingConstraints" />
+    <item android:id="@+id/item10"
+        android:title="Υπηρεσίες"
+        tools:ignore="MissingConstraints" />
+    <item android:id="@+id/item11"
+        android:title="Emergency Services"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
