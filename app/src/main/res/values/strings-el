@@ -1,1 +1,24 @@
-
+resources>
+    <string name="app_name">Τουριστικός Οδηγός</string>
+    <string name="start">Εκκίνηση</string>
+    <string name="navigate">Πλοήγηση</string>
+    <string name="welcome_to_serres">Καλώς ήρθατε στις Σέρρες</string>
+    <string name="language">Γλώσσα</string>
+    <string name="no">Όχι</string>
+    <string name="yes">Ναι</string>
+    <string name="ok">OK</string>
+    <string name="navigation_confirmed">Η πλοήγηση επιβαιβεώθηκε</string>
+    <string name="do_you_wish_to_navigate_to_this_place">Θα θέλατε να πλοηγηθείτε σε αυτό το μέρος;</string>
+    <string name="navigation_confirmation">Επιβεβαίωση Πλοήγησης</string>
+    <string name="anastasios_eskitzis_reumatologos">Αναστάσιος εσκιτζής- Ρευματολόγος (Ιατρείο)</string>
+    <string name="maria_kokarida_wrila">Μαρία Κοκαρίδα - Ωριλά Ιατρείο</string>
+    <string name="orthopaidiko_iatreio_enilikwn_kai_paidwn">Ορθοπαιδικό ιατρείο ενηλίκων και παιδιών Ιατρείο</string>
+    <string name="dipae">ΔΙ.ΠΑ.Ε (Σχολείο)</string>
+    <string name="lofos_koyla">Λόφος Κούλα (Ιστορικό αξιοθέατο)</string>
+    <string name="achmet_pasa_tzami">Αχμέτ Πασά Τζαμί (Χώρος Λατρείας)</string>
+    <string name="Zilingiri_Tzami">Ζιντζιρλί Τζαμί (Χώρος Λατρείας)</string>
+    <string name="liberty_square">Πλατεία Ελευθερίας (Τουριστικό αξιοθέατο)</string>
+    <string name="archeological_museum_of_serres_bezesteni">Αρχαιολογικό Μουσείο Σερρών (Μπεζεστένι) (Ιστορικό αξιοθέατο)</string>
+    <string name="this_is_marker_1_s_snippet">Αυτός είναι δείκτης 1\'s snippet</string>
+    <string name="natural_history_museum">Μουσείο φυσικής ιστορίας (Ιστορικό αξιοθέατο)</string>
+</resources>
