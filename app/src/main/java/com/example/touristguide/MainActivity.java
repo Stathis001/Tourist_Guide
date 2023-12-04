@@ -7,9 +7,51 @@ import android.widget.Button;
 import android.content.res.Configuration;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Locale;
+import android.view.MenuItem;
+import android.widget.PopupMenu;
 
+public class MainActivity extends AppCompatActivity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.start_screen);
 
+        Button filtersButton = findViewById(R.id.filtersButton);
+
+        filtersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMenu(v);
+            }
+        });
+    }
+
+    private void showPopupMenu(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.getMenuInflater().inflate(R.menu.filters_menu, popupMenu.getMenu());
+
+        // Προσθέστε ακροατές γεγονότων για τις επιλογές του μενού
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.filter_option_1:
+                        // Εκτελέστε κάποια ενέργεια για την επιλογή 1
+                        return true;
+                    case R.id.filter_option_2:
+                        // Εκτελέστε κάποια ενέργεια για την επιλογή 2
+                        return true;
+                    // Προσθέστε περισσότερες περιπτώσεις αν χρειάζεται
+                    default:
+                        return false;
+                }
+            }
+        });
+
+        popupMenu.show();
+    }
+}
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
     Button startButton ;
