@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Locale;
 import android.view.MenuItem;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -121,5 +122,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Εδώ μπορείτε να ξανα-φορτώσετε τη δραστηριότητά σας για να εφαρμοστεί η αλλαγή
         recreate();
+    }
+     private void applyFilters() {
+        // Εδώ θα προσθέσετε την λογική για την εφαρμογή των φίλτρων
+        // Π.χ., εμφάνιση μηνύματος κατά την εφαρμογή των φίλτρων
+        Toast.makeText(this, "Εφαρμογή των φίλτρων", Toast.LENGTH_SHORT).show();
     }
 }
