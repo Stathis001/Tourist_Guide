@@ -5,6 +5,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.maps.DirectionsApi;
+import com.google.maps.DirectionsApiRequest;
 import com.google.maps.GeoApiContext;
 import com.google.maps.PendingResult;
 import com.google.maps.android.PolyUtil;
@@ -16,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DirectionsHandler {
-    private String encodedPolyline;
     private GoogleMap googleMap;
     private List<Polyline> polylines;
     private DirectionsApi directionsApi;
@@ -27,50 +27,45 @@ public class DirectionsHandler {
     }
 
     public void drawDirections(LatLng origin, LatLng destination) {
-        String apiKey = "AIzaSyCsiSSBXA6N_zHALpoLrCCmp-gR-vKwBMI";
+        // Clear old polylines before adding new ones
+        clearPolylines();
+
+        String apiKey = BuildConfig.MAPS_API_KEY;
         GeoApiContext context = new GeoApiContext.Builder().apiKey(apiKey).build();
 
-        DirectionsApi.newRequest(context)
-                .mode(TravelMode.DRIVING)
+        // Use the Directions API to get the directions
+        DirectionsApiRequest request = DirectionsApi.newRequest(context)
+                .mode(TravelMode.WALKING)
                 .origin(new com.google.maps.model.LatLng(origin.latitude, origin.longitude))
-                .destination(new com.google.maps.model.LatLng(destination.latitude, destination.longitude))
-                .setCallback(new PendingResult.Callback<DirectionsResult>() {
-                    @Override
-                    public void onResult(DirectionsResult result) {
-                        if (result.routes != null && result.routes.length > 0) {
-                            DirectionsRoute route = result.routes[0];
-                            List<LatLng> decodedPath = decodePolyline(String.valueOf(route.overviewPolyline));
-                            encodedPolyline = String.valueOf(route.overviewPolyline);
+                .destination(new com.google.maps.model.LatLng(destination.latitude, destination.longitude));
 
-                            PolylineOptions options = new PolylineOptions()
-                                    .addAll(decodedPath)
-                                    .width(12)
-                                    .color(Color.BLUE);
+        try {
+            DirectionsResult result = request.await();
 
-                            Polyline newPolyline = googleMap.addPolyline(options);
-                            polylines.add(newPolyline);
+            if (result.routes != null && result.routes.length > 0) {
+                DirectionsRoute route = result.routes[0];
+                List<LatLng> decodedPath = decodePolyline(route.overviewPolyline.getEncodedPath());
 
-                            // Move the drawPolyline call inside this block
-                            drawPolyline(encodedPolyline);
-                        }
-                    }
+                PolylineOptions options = new PolylineOptions()
+                        .addAll(decodedPath)
+                        .width(12)
+                        .color(Color.BLUE);
 
-                    @Override
-                    public void onFailure(Throwable e) {
-                        // Handle failure
-                    }
-                });
+                Polyline newPolyline = googleMap.addPolyline(options);
+                polylines.add(newPolyline);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Handle the exception
+        }
     }
-    private void drawPolyline(String encodedPolyline) {
-        List<LatLng> decodedPath = decodePolyline(encodedPolyline);
 
-        PolylineOptions options = new PolylineOptions()
-                .addAll(decodedPath)
-                .width(12)
-                .color(Color.BLUE);
-
-        Polyline newPolyline = googleMap.addPolyline(options);
-        polylines.add(newPolyline);
+    private void clearPolylines() {
+        // Remove each polyline from the map and clear the list
+        for (Polyline polyline : polylines) {
+            polyline.remove();
+        }
+        polylines.clear();
     }
 
     private List<LatLng> decodePolyline(String encoded) {
@@ -105,3 +100,4 @@ public class DirectionsHandler {
         return poly;
     }
 }
+
