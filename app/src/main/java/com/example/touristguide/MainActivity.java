@@ -71,4 +71,56 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }
     }
 
+    Button startButton, languageButton;
+
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.start_screen);
+    languageButton = findViewById(R.id.languageButton);
+    languageButton.setOnClickListener(this::showLanguageDialog);
+    startButton = findViewById(R.id.startButton);
+    startButton.setOnClickListener(this);
+}
+
+@Override
+public void onClick(View v) {
+    Intent intent = new Intent(v.getContext(), MapsActivity.class);
+    startActivity(intent);
+}
+
+private void showLanguageDialog(View v) {
+    List<String> supportedLanguages = Arrays.asList(getString(R.string.english), getString(R.string.greek), getString(R.string.german));
+
+    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    builder.setTitle("Select Language")
+            .setItems(supportedLanguages.toArray(new String[0]), (dialog, which) -> {
+                String selectedLanguage = supportedLanguages.get(which);
+                changeLanguage(selectedLanguage);
+                recreate(); // Restart the activity to apply the language change
+            });
+    AlertDialog dialog = builder.create();
+    dialog.show();
+}
+private void changeLanguage(String language) {
+    Locale newLocale;
+    if (language.equalsIgnoreCase("german")) {
+        newLocale = Locale.GERMAN;
+    } else if (language.equalsIgnoreCase("greek")) {
+        newLocale = new Locale("el");
+    } else {
+        newLocale = Locale.ENGLISH;
+    }
+
+    // Update the configuration
+    Resources resources = getResources();
+    Configuration configuration = resources.getConfiguration();
+    configuration.setLocale(newLocale);
+    resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+
+    // You may also want to save the selected language for future use
+    // e.g., using SharedPreferences
+    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+    preferences.edit().putString("selected_language", language).apply();
+}
+
 }
